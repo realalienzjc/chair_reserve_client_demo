@@ -1,0 +1,52 @@
+<% %>
+<% if flash[:message] %>
+  <h2>服务员说：</h2>
+  <p>
+    <span class="error"><%= flash[:message] %></span>
+  </p>
+<% end %>
+
+<h2><p>座位号：<span class="error"><%= @game.seat_num %>  ( <%= @game.is_sofa ? "卡座" : "散座" %> )</span></p></h2>
+<% if @game.stop_timestamp %>
+
+	<h2><p>总用时：<span class="error"><%= @game.elapsed %> ( <%=@game.get_discount_info%> )</span></p></h2>
+	<p>开始时间：<%= @game.start_timestamp.strftime("%Y-%m-%d %H:%M:%S")%></p>
+	<br/>	
+	<p>结账时间：<%= @game.stop_timestamp.strftime("%Y-%m-%d %H:%M:%S")%></p>
+
+<% else %>
+	<h2><p>已用时：<span class="error"><%= @game.elapsed %></span></p></h2>
+<% end%>
+
+<br/>
+
+
+<h2> 我要： </h2>
+
+
+<form action="/desk_call" method="post">
+<% unless @game.is_over? %>
+
+	 <input type="submit" value="点菜" name="call"/>
+	 <input type="submit" value="额外餐具" name="call" />	 
+	 <input type="submit" value="白开水" name="call" />	 
+	 <br/>
+	 <input type="submit" value="买单！" name="call"/>
+	 <input type="submit" value="参与抽奖！" name="call"/>
+
+<% else %>
+	<input type="submit" value="重新开始" name="call"/>
+
+<% end %>
+</form>
+
+
+
+
+<br/></br>
+<h4>说明：</h4>
+<p>
+	* 已用时：(现实1秒钟，模拟为30秒)<br/>
+	* 页面每10秒自动刷新<br/>
+	* 此处餐桌号为随机值(1~100)，假定大于50的座位号为散座，其他为卡座
+</p>

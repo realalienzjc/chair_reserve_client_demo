@@ -1,0 +1,12 @@
+
+
+
+
+
+
+== Trouble Shooting ==
+
+* Q: can't access via local IP address and designated port(80)?
+  A: in config.ru file, add '#\ -o 0.0.0.0 -p 80' to the first line.
+
+

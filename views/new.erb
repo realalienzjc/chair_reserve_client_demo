@@ -1,0 +1,26 @@
+<% if flash[:message] %>
+  <p>
+    <span class="error"><%= flash[:message] %></span>
+  </p>
+<% end %>
+
+<div>
+<h4>打折活动规则：</h4>
+
+<p>
+ * 优惠内容：赠送积分，或根据就餐时长打折；<br/>
+ * 优惠时间：当您入座后扫二维码，即开始计时，买单支付完成作为结束时间；<br/>
+ * 解释权归本店所有；
+</p>
+
+
+</div>
+
+
+<form action="/create" method="post">
+  <p>请输入您的手机号，点击“同意并参与”按钮</p>
+  <p>
+	  <input type="text" size="15" name="phone" autocomplete="off" maxlength="11"/>
+	  <input type="submit" value="同意并参与"/>
+  </p>
+</form>

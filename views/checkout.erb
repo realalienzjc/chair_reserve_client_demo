@@ -1,0 +1,17 @@
+
+
+<form action="/checkout" method="post">
+  <p>请输入就餐金额（点击确认后，将根据您的就餐时长额外）</p>
+  <p>
+	  <input type="number" size="15" name="cost" autocomplete="off" maxlength="11"/>元
+	  <input type="submit" value="checkout"/>
+  </p>
+</form>
+
+
+<h4>说明：</h4>
+<p>
+  * 实际情况下，金额数由商户端给出，此处仅需客户确认。 <br/>
+  * 此页面也可以增加上菜是否完成的判断逻辑。<br/>
+  * 此页面可能提供消费者查单后，发现问题重新打单的情况。<br/>
+</p>
